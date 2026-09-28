@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: csharp-grader-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: SUPABASE_BUCKET
+        value: submissions
+      - key: ADMIN_KEY
+        sync: false
