@@ -1,0 +1,16 @@
+
+# Windows C# Checker (опционален, препоръчителен за WinForms)
+
+Render е Linux среда. Затова Windows Forms проектите не трябва да се приемат за напълно автоматично компилиране на Render.
+
+За WinForms използвайте Windows checker като отделен worker:
+1. Windows PC/VM има .NET SDK.
+2. Worker взема queued submission от Supabase.
+3. Изтегля ZIP от private Storage.
+4. Стартира `dotnet build`.
+5. Изпълнява тестовете/анализатора.
+6. Записва points, grade, details в submissions.
+
+Тази папка е оставена като отделен компонент, за да може по-късно да се добави Windows service/Task Scheduler worker.
+
+За обикновени Console/Class Library задачи backend-ът може да проверява директно.
